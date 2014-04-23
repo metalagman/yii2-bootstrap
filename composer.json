@@ -15,5 +15,10 @@
         "php":">=5.4.0",
 		"yiisoft/yii2": "*",
 		"yiisoft/yii2-bootstrap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "lagman\\bootstrap\\": ""
+        }
     }
 }

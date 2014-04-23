@@ -1,2 +1,2 @@
-yii2-bootstrap
+Twitter-Bootstrap helpers for Yii2
 ==============

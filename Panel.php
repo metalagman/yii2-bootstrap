@@ -8,7 +8,7 @@ use yii\helpers\VarDumper;
 /**
  * @author Alexey Samoylov <alexey.samoylov@gmail.com>
  */
-class Panel extends \yii\base\Widget
+class Panel extends \yii\bootstrap\Widget
 {
     const
         TYPE_DEFAULT = 'default',
@@ -24,13 +24,14 @@ class Panel extends \yii\base\Widget
 
     public $hasBody = true;
 
-    public $options = ['class' => 'panel'];
     public $bodyOptions = ['class' => 'panel-body'];
     public $headerOptions = ['class' => 'panel-heading'];
     public $footerOptions = ['class' => 'panel-footer'];
 
     public function init()
     {
+        parent::init();
+
         if (!in_array($this->type, [
             self::TYPE_DEFAULT,
             self::TYPE_PRIMARY,
@@ -38,13 +39,13 @@ class Panel extends \yii\base\Widget
             self::TYPE_INFO,
             self::TYPE_WARNING,
             self::TYPE_DANGER
-        ])
-        )
+        ]))
             throw new InvalidConfigException('Invalid panel type: ' . VarDumper::dumpAsString($this->type));
 
         if (!isset($this->options['id']))
             $this->options['id'] = $this->getId();
 
+        Html::addCssClass($this->options, "panel");
         Html::addCssClass($this->options, "panel-{$this->type}");
         echo Html::beginTag('div', $this->options);
         if (isset($this->header))

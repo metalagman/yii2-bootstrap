@@ -44,7 +44,7 @@ class Button extends Widget
         if (!$this->visible)
             return false;
 
-        if ($class = self::sizeToClass($this->size) !== false)
+        if (($class = self::sizeToClass($this->size)) !== false)
             Html::addCssClass($this->options, $class);
         Html::addCssClass($this->options, "btn-{$this->type}");
 
